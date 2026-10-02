@@ -4,38 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CareDose | Medication made simple</title>
-    <link rel="stylesheet" href="/CareDose/src/styles.css" />
-    <script async src="https://ga.jspm.io/npm:es-module-shims@2.7.0/dist/es-module-shims.js"></script>
-    <script type="importmap-shim">
-      {
-        "imports": {
-          "react": "https://esm.sh/react@18.3.1",
-          "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
-          "react-router-dom": "https://esm.sh/react-router-dom@6.28.2?deps=react@18.3.1,react-dom@18.3.1",
-          "lucide-react": "https://esm.sh/lucide-react@0.468.0?deps=react@18.3.1"
-        }
-      }
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module-shim">
-      try {
-        const response = await fetch('/CareDose/src/main.jsx', { cache: 'no-store' });
-        if (!response.ok) throw new Error(`Could not load app source (${response.status})`);
-        let source = await response.text();
-        source = source.replace("import './styles.css';", '');
-        source = source.replace('basename={import.meta.env.BASE_URL}', 'basename="/CareDose/"');
-        const transformed = Babel.transform(source, { presets: ['react'] }).code;
-        const blob = new Blob([transformed], { type: 'text/javascript' });
-        const url = URL.createObjectURL(blob);
-        await importShim(url);
-        URL.revokeObjectURL(url);
-      } catch (error) {
-        document.getElementById('root').innerHTML = `<div style="max-width:760px;margin:80px auto;padding:24px;font-family:Arial,sans-serif"><h1>CareDose could not start</h1><p>${String(error.message || error)}</p><p>Open the browser console for details.</p></div>`;
-        console.error(error);
-      }
-    </script>
+    <script type="module" src="/CareDose/src/main.jsx"></script>
   </body>
 </html>
