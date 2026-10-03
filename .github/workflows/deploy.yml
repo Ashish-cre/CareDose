@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Verify Vite entry
+        run: test -f src/main.jsx
+
       - name: Build Vite app
         run: npm run build
 
